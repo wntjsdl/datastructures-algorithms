@@ -18,7 +18,21 @@ import Foundation
 
 public func solution(_ A : [String], _ B : [String], _ P : String) -> String {
     // do your work here
-    return ""
+    var findBool = false
+    var returnText = "NO CONTACT"
+    
+    guard A.count > 0 else { return "Contacts is Empty" }
+    guard B.count > 0 else { return "Phone numbers is Empty" }
+    guard P.count > 0 else { return "Search phrase is Empty" }
+    
+    for i in (0...B.count-1).reversed() {
+        if B[i].contains(P) {
+            findBool = true
+            returnText = B[i]
+            return A[i]
+        }
+    }
+    return returnText
 }
 
 let A = ["pim", "pom"]

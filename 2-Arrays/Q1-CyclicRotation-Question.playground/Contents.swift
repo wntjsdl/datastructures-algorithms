@@ -18,7 +18,13 @@ import UIKit
 
 func solution(A: [Int], K: Int) -> [Int] {
     // do your work here...
-    return [Int]()
+    var tempArr = A
+    for _ in 0..<K {
+        let last = tempArr[tempArr.count - 1]
+        tempArr.removeLast()
+        tempArr.insert(last, at: 0)
+    }
+    return tempArr
 }
 
 solution(A: [1, 2, 3, 4, 5], K: 1) // 5 1 2 3 4

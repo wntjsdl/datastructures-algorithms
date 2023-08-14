@@ -24,7 +24,24 @@ import UIKit
  */
 func solution(_ S : String) -> String {
     // do your work here
-    return ""
+    var newString = S.components(separatedBy:CharacterSet.decimalDigits.inverted).joined()
+    
+    guard newString.count > 2 else { return newString }
+    
+    for i in (1...(newString.count / 3)).reversed() {
+        newString.insert("-", at: newString.index(newString.startIndex, offsetBy: i*3))
+    }
+    
+    var arrString = Array(newString)
+    
+    if arrString.last == "-" {
+        arrString.popLast()
+    } else if arrString[arrString.count-2] == "-" {
+        arrString[arrString.count-2] = arrString[arrString.count-3]
+        arrString[arrString.count-3] = "-"
+    }
+    
+    return String(arrString)
 }
 
 solution("123456789")           // 123-456-789
