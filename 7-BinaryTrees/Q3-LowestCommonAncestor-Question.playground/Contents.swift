@@ -33,12 +33,29 @@ class BinaryTree {
     
     func lca(_ node: Node?, _ n1: Int, _ n2: Int) -> Node? {
         // Magic happens here...
-        return nil
+        if node == nil { return nil }
+//        1. If the value of the current node is less than both n1 and n2, then LCA lies in the right.
+        if node!.data < n1 && node!.data < n2 {
+            return lca(node?.right, n1, n2)
+        }
+//        2. If the value of the current node is greater than both n1 and n2, then LCA lies in the left.
+        if node!.data > n1 && node!.data > n2 {
+            return lca(node?.left, n1, n2)
+        }
+//        3. If both the above cases are false then return the current node as LCA.
+        return node
     }
 }
 
 let tree = BinaryTree()
 // Step 1: Build the BST
+tree.root = Node(20)
+tree.root?.left = Node(8)
+tree.root?.right = Node(22)
+tree.root?.left?.left = Node(4)
+tree.root?.left?.right = Node(12)
+tree.root?.left?.right?.left = Node(10)
+tree.root?.left?.right?.right = Node(14)
 
 // Step 2: Make it pass these test cases
 var n1 = 10, n2 = 14

@@ -8,9 +8,11 @@ import UIKit
  */
 
 func solution(_ text: String) -> String {
-    // Do your work here... 
-    return ""
+    // Do your work here...
+    var arr = Array(text)
+    arr.reverse()
+    return String(arr)
 }
 
-solution("abc") // bca
+solution("abc") // cba
 solution("Would you like to play a game?")

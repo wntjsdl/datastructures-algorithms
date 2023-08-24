@@ -26,6 +26,17 @@ class Node {
 
 func hasCycle(first: Node) -> Bool {
     // here...
+//    var firstNode = first
+//    while firstNode.next != nil {
+//        var secondNode = firstNode.next
+//        while secondNode?.next != nil {
+//            if firstNode.data == secondNode?.data {
+//                return true
+//            }
+//            secondNode = secondNode!.next
+//        }
+//        firstNode = firstNode.next!
+//    }
     return false
 }
 

@@ -49,8 +49,21 @@ func printLinkedList(_ head: Node?) {
 }
 
 func findMerge(headA: Node?, headB: Node?) -> Int? {
-    // Here...
-    return nil
+    var answer = 0
+    var aNode = headA
+    var bNode = headB
+    while aNode?.next != nil {
+        aNode = aNode!.next
+        while bNode?.next != nil {
+            bNode = bNode!.next
+            if aNode?.data == bNode?.data {
+                answer = aNode!.data
+                break
+            }
+        }
+        bNode = headB
+    }
+    return answer
 }
 
 // 1 2 3 4 5 6

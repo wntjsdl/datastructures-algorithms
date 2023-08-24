@@ -16,7 +16,14 @@ class Node {
 
 func length(_ head: Node?) -> Int {
     // Do your work here...
-    return 0
+    var length = 0
+    var current = head
+    while current != nil {
+        current = current?.next
+        length += 1
+    }
+    
+    return length
 }
 
 // 1 2 3 4 5 6
