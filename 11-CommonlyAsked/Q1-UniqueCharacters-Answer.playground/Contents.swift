@@ -27,7 +27,7 @@ func isUnique(_ text: String) -> Bool {
         if foundChars[c] != nil { // Already found
             return false
         }
-         foundChars[c] = true
+        foundChars[c] = true
     }
     return true
 }
