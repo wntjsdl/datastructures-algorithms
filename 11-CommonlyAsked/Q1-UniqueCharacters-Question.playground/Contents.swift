@@ -12,6 +12,14 @@ import UIKit
  */
 
 func isUnique(_ text: String) -> Bool {
+    var str = text
+    for _ in 0..<str.count-1 {
+        if let last = str.popLast() {
+            if str.contains(last) {
+                return false
+            }
+        }
+    }
     return true
 }
 

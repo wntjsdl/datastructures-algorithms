@@ -11,7 +11,19 @@ import UIKit
  */
 
 func isPermutation(_ text: String, _ perm: String) -> Bool {
-    return false
+    if text.count != perm.count {
+        return false
+    }
+    var textArr = Array(text)
+    var permArr = Array(perm)
+    for _ in textArr {
+        if let last = textArr.popLast() {
+            if !permArr.contains(last) {
+                return false
+            }
+        }
+    }
+    return true
 }
 
 isPermutation("abc", "cba") // true
