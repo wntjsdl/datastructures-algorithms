@@ -17,7 +17,17 @@ import UIKit
  */
 
 func oneAway(_ first: String, _ second: String) -> Bool {
-    return false
+    var notInCount = 0
+    var firstStr = first
+    for str in second {
+        if let index = firstStr.firstIndex(of: str) {
+            firstStr.remove(at: index)
+            print(firstStr)
+        } else {
+            notInCount += 1
+        }
+    }
+    return notInCount > 1 ? false : true
 }
 
 oneAway("pale", "paleXXXX")     // false

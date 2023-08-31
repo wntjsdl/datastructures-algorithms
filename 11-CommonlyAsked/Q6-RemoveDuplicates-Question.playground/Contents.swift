@@ -33,8 +33,26 @@ class Node {
     }
 }
 
-func removeDuplictates(_ head: Node?) -> Node? {
-    return nil
+func removeDuplictates(_ head: Node?) {
+    var uniques = Set<Int>()
+    var previous: Node? = nil
+    var current = head
+    
+    while current != nil {
+        if uniques.contains(current!.data) {
+            previous!.next = current!.next // skip this duplicate
+        } else {
+            uniques.insert(current!.data)
+            previous = current
+        }
+//        var data = current!.data
+//        var next = current!.next
+//        let nextData = next?.data
+//        if data == nextData {
+//            current!.next = nil
+//        }
+        current = current!.next
+    }
 }
 
 let node3 = Node(3)

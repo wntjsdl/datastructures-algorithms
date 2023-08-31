@@ -31,7 +31,28 @@ class Node {
 }
 
 func isSubTree(_ tree: Node, _ subTree: Node) -> Bool {
+    let current = tree
+    if let left = tree.left {
+        if left.key == subTree.key {
+            return true
+        } else {
+            isSubTree(left, subTree)
+        }
+    }
+    if let right = tree.right {
+        if right.key == subTree.key {
+            return true
+        } else {
+            isSubTree(right, subTree)
+        }
+    }
     return false
 }
 
-//isSubTree(root, subTree)
+let root = Node(7)
+root.left = Node(6)
+let node8 = Node(8)
+let node9 = Node(9)
+root.right = node8
+
+isSubTree(root, node8)

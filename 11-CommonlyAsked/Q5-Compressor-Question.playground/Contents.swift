@@ -15,7 +15,23 @@ import UIKit
  */
 
 func compress(_ str: String) -> String {
-    return ""
+    var answer = ""
+    var sameCount = 1
+    for s in str {
+        if answer.isEmpty || answer.last != s {
+            if sameCount != 1 {
+                answer += String(sameCount)
+                sameCount = 1
+            }
+            answer.append(s)
+        } else if answer.last == s {
+            sameCount += 1
+        }
+    }
+    if sameCount != 1 {
+        answer += String(sameCount)
+    }
+    return answer.count < str.count ? answer : str
 }
 
 compress("aaabb")           // a3b2

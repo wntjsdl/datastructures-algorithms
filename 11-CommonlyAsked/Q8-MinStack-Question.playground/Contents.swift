@@ -14,6 +14,23 @@ import UIKit
 
 let stack = MinStack() // Create this how ever you want...
 
+class MinStack {
+    var arr = [Int]()
+    
+    func push(_ value: Int) {
+        self.arr.append(value)
+    }
+    
+    func pop() {
+        self.arr.removeLast()
+    }
+    
+    func min() -> Int? {
+        var sortedArr = arr.sorted()
+        return sortedArr.first
+    }
+}
+
 stack.push(5)
 stack.push(6)
 stack.push(3)
