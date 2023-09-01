@@ -18,7 +18,36 @@ import UIKit
  */
 
 func canWrite(note: String, letters: String) -> Bool {
-    return false
+    let noteMap = map(note.components(separatedBy: " ").joined())
+    let letterMap = map(letters)
+    
+    for (key, _) in noteMap {
+        if letterMap[key] == nil {
+            return false
+        }
+        
+        let noteCount = noteMap[key]!
+        let letterCount = letterMap[key]!
+        
+        if letterCount < noteCount {
+            return false
+        }
+    }
+    return true
+}
+
+func map(_ text: String) -> [Character: Int] {
+    var map = [Character: Int]()
+    let chars = Array(text)
+    
+    for char in chars {
+        if map[char] != nil {
+            map[char] = map[char]! + 1
+        } else {
+            map[char] = 1
+        }
+    }
+    return map
 }
 
 canWrite(note: "Pay", letters: "yaP")

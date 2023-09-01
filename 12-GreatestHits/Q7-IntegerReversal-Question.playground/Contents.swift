@@ -14,7 +14,14 @@ import UIKit
  */
 
 func reverse(_ x: Int) -> Int {
-    return 0
+    if x >= 0 {
+        let numberStr = String(x).reversed()
+        return Int(String(numberStr))!
+    } else {
+        var numberStr = "-"
+        numberStr += String(abs(x)).reversed()
+        return Int(numberStr)!
+    }
 }
 
 reverse(123)    // 321

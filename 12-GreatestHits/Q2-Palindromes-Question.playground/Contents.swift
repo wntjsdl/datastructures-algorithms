@@ -12,7 +12,8 @@ import UIKit
  */
 
 func isPalindrome(_ text: String) -> Bool {
-    return false
+    var reverse = text.reversed()
+    return text == String(reverse) ? true : false
 }
 
 isPalindrome("abba")    // true

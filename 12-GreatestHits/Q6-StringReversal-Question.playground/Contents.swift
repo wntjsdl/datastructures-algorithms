@@ -13,7 +13,7 @@ import UIKit
  */
 
 func reverse(_ text: String) -> String {
-    return ""
+    return String(text.reversed())
 }
 
 reverse("Hello")    // olleH

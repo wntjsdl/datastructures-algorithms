@@ -28,7 +28,25 @@ import UIKit
 
 class CaesarCipher {
     func encrypt(_ plainText: String) -> String {
-        return ""
+        var cipherText = plainText.map { char in
+            if char == "A" || char == "B" || char == "C" || char == "a" || char == "b" || char == "c" {
+                return String(UnicodeScalar(char.unicodeScalarCodePoint() + 23)!)
+            } else if char == " " {
+                return " "
+            }
+            return String(UnicodeScalar(char.unicodeScalarCodePoint()-3)!)
+        }
+        return cipherText.joined()
+    }
+}
+
+extension Character {
+    func unicodeScalarCodePoint() -> UInt32
+    {
+        let characterString = String(self)
+        let scalars = characterString.unicodeScalars
+
+        return scalars[scalars.startIndex].value
     }
 }
 
