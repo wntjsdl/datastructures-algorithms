@@ -12,6 +12,14 @@ import UIKit
  */
 
 func hasPairWithSum(_ arr: [Int], _ sum: Int) -> Bool {
+    for i in 0..<arr.count-1 {
+        if i > sum { continue }
+        for j in i+1..<arr.count {
+            if arr[i] + arr[j] == sum {
+                return true
+            }
+        }
+    }
     return false
 }
 
