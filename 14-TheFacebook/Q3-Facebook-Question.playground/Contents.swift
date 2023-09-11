@@ -19,9 +19,23 @@ class Node {
         self.data = data
     }
     
-    func copy() -> Node {
+    func copy(_ node: Node) {
         // Do your work here...
-        return Node(0)
+        self.data = node.data
+        self.left = node.left
+        self.right = node.right
+//        return Node(0)
+    }
+    
+    func answerCopy() -> Node {
+        let newNode = Node(data)
+        if let left = left {
+            newNode.left = left.answerCopy()
+        }
+        if let right = right {
+            newNode.right = right.answerCopy()
+        }
+        return newNode
     }
 }
 
